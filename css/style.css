@@ -30,19 +30,35 @@
   width: 100%;
 }
 
-.button {
-  text-transform: uppercase;
-  max-width: 300px;
-  width: 100%;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  padding: 22px 72px;
-  background: transparent;
+@font-face {
+  font-family: 'Muller Regular';
+  src: url("/fonts/MullerRegular/MullerRegular.woff2") format("woff2");
+  src: url("/fonts/MullerRegular/MullerRegular.woff") format("woff");
+  src: url("/fonts/MullerRegular/MullerRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }
 
-.button:hover {
-  -webkit-box-shadow: 0 5px 5px rgba(1, 1, 1, 0.1);
-          box-shadow: 0 5px 5px rgba(1, 1, 1, 0.1);
+@font-face {
+  font-family: 'Muller Bold';
+  src: url("/fonts/MullerBold/MullerBold.woff2") format("woff2");
+  src: url("/fonts/MullerBold/MullerBold.woff") format("woff");
+  src: url("/fonts/MullerBold/MullerBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller Medium';
+  src: url("/fonts/MullerMedium/MullerMedium.woff2") format("woff2");
+  src: url("/fonts/MullerMedium/MullerMedium.woff") format("woff");
+  src: url("/fonts/MullerMedium/MullerMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.header {
+  font-family: 'Muller Bold';
 }
 
 .header-block {
@@ -72,9 +88,17 @@
   display: flex;
 }
 
+.header-inst {
+  margin-right: 10px;
+}
+
 .header-inst__logo {
   width: 20px;
   height: 20px;
+}
+
+.header-vk {
+  margin-right: 10px;
 }
 
 .header-vk__logo {
@@ -85,5 +109,154 @@
 .header-fb__logo {
   width: 20px;
   height: 20px;
+}
+
+.hero {
+  background-image: url("/img/hero/hero-bg1.jpg");
+  background-size: cover;
+}
+
+.hero-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero__title {
+  text-align: center;
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  max-width: 310px;
+  border: 2px solid #4fe20b;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .card-image:before {
+  opacity: 1;
+}
+
+.card-image {
+  position: relative;
+}
+
+.card-image::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ffd200), to(rgba(255, 255, 255, 0)));
+  background-image: linear-gradient(to top, #ffd200 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.card-text {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card-text__link {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Muller Regular';
+  position: relative;
+  z-index: 1;
+}
+
+.card-text__link:hover::after {
+  height: 26px;
+}
+
+.card-text__link:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  bottom: -4px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0px;
+  background-color: #ffd200;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.navbar {
+  background-color: #4fe20b;
+}
+
+.navbar-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Muller Bold';
+}
+
+.navbar-button:hover {
+  background-color: #f5e501;
 }
 /*# sourceMappingURL=style.css.map */
